@@ -457,15 +457,13 @@
       "sizes": "1024x1024"
     }
   ],
-  "share_target":
-  {
-    "action": "/share",
-    "params":
-    {
-      "title": "title",
-      "text": "text",
-      "url": "url"
+  "share_target": {
+    "action": "receive-share/",
+    "method": "GET",
+    "params": {
+       "title": "shared_title",
+       "url": "shared_url"
     }
-  },
+ },
   "start_url": "index.html?launcher=true"
 }
