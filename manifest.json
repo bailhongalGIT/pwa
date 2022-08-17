@@ -457,24 +457,14 @@
       "sizes": "1024x1024"
     }
   ],
-  "share_target": {
-    "action": "/cgi-bin/aggregate",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "name",
-      "text": "description",
-      "url": "link",
-      "files": [
-        {
-          "name": "records",
-          "accept": ["text/csv", ".csv"]
-        },
-        {
-          "name": "graphs",
-          "accept": "image/svg+xml"
-        }
-      ]
+  "share_target":
+  {
+    "action": "/share",
+    "params":
+    {
+      "title": "title",
+      "text": "text",
+      "url": "url"
     }
   },
   "start_url": "index.html?launcher=true"

@@ -51,22 +51,21 @@ self.addEventListener('fetch', function (event) {
     // If this is an incoming POST request for the
     // registered "action" URL, respond to it.
     if (event.request.method === 'POST') {
-      event.respondWith((async () => {
-        const formData = await event.request.formData();
-        const link = formData.get('link') || '';
-        const responseUrl = await saveBookmark(link);
-        return Response.redirect(responseUrl, 303);
-      })());
+        event.respondWith((async () => {
+            const formData = await event.request.formData();
+            const link = formData.get('link') || '';
+            const responseUrl = await saveBookmark(link);
+            return Response.redirect(responseUrl, 303);
+        })());
     }
 });
 
 self.addEventListener('DOMContentLoaded', () => {
-    const parsedUrl = new URL(window.location);
-    // searchParams.get() will properly handle decoding the values.
-    console.log('Title shared: ' + parsedUrl.searchParams.get('title'));
-    console.log('Text shared: ' + parsedUrl.searchParams.get('text'));
-    console.log('URL shared: ' + parsedUrl.searchParams.get('url'));
-  });
+    var parsedUrl = new URL(self.location.toString());
+    console.log('Title shared: ' + parsedUrl.searchParams.get('name'));
+    console.log('Text shared: ' + parsedUrl.searchParams.get('description'));
+    console.log('URL shared: ' + parsedUrl.searchParams.get('link'));
+});
 
 self.addEventListener('install', function (event) {
     // The promise that skipWaiting() returns can be safely ignored.
